@@ -39,12 +39,15 @@ export class AuthService {
       .post<any>(`${this.endpoint}/login`, body,{ context: new HttpContext().set(BYPASS_LOG, true) })
       .subscribe((res: any) => {
         if(res.accessT){
-          this.storageService.saveToken(res.accessT)
-          this.storageService.saveRefreshToken(res.refreshT);
+          console.log(res.accessT)
           var json = JSON.parse(res.user);
           console.log(json)
           this.currentUser = json;
           this.storageService.saveUser(json);
+          this.storageService.saveToken(res.accessT)
+          this.storageService.saveRefreshToken(res.refreshT);
+          console.log(res.user)
+
         }else {
           this.storageService.saveUser(null);
         }
@@ -59,9 +62,9 @@ export class AuthService {
     return authToken !== null ? true : false;
   }
   doLogout() {
-    let removeToken = localStorage.removeItem('access_token');
-    if (removeToken == null) {
-      this.router.navigate(['log-in']);
+    let removeUser = this.storageService.dologout();
+    if (removeUser == null) {
+      this.router.navigate(['login']);
     }
   }
   // UserModel profile

@@ -39,4 +39,11 @@ export class StorageService {
     }
     return {};
   }
+
+  public dologout(): void {
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(REFRESHTOKEN_KEY);
+    localStorage.removeItem(USER_KEY);
+    return this.getUser();
+  }
 }

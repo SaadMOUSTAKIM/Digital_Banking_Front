@@ -8,11 +8,7 @@ import {CustomerAccountsComponent} from "./customer-accounts/customer-accounts.c
 import {NewCustomerComponent} from "./new-customer/new-customer.component";
 
 const routes: Routes = [
-  {path : "customers", component : CustomersComponent,
-    canActivate: [AuthGuard],
-    data: {
-      role: 'USER'
-    }},
+  {path : "customers", component : CustomersComponent},
   { path :"accounts", component : AccountsComponent},
   { path :"new-customer", component : NewCustomerComponent,canActivate: [AuthGuard],
     data: {

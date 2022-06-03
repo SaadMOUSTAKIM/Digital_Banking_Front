@@ -27,12 +27,9 @@ export class LoginComponent {
 
     if (val.username && val.password) {
       var v= this.authService.login(val.username, val.password)
-      if(v!=null){
+        console.log(v)
         this.router.navigate(["/"])
-      }else{
-        this.error="email or password are incorrect";
 
-      }
 
     }
   }

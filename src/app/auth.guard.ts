@@ -50,15 +50,15 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
       // if ( route.data.roles.some( ai => this.getUserRoles.getRoles().includes(ai) );) {
       for (let i = 0; i < userRole.length; i++) {
         // @ts-ignore
-        if (route.data.role.includes(userRole[i])) {
+        if (route.data["role"]==(userRole[i])) {
           return true;
         }
       }
-      this.router.navigate(['/accounts']);
+      this.router.navigate(['/']);
       return false;
     }
 
-    this.router.navigate(['/accounts']);
+    this.router.navigate(['/']);
     return false;
   }
 }
