@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Moustakim_Banking_dig_Front'`, () => {
+  it(`should have as title 'E-banking-front'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Moustakim_Banking_dig_Front');
+    expect(app.title).toEqual('E-banking-front');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Moustakim_Banking_dig_Front app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('E-banking-front app is running!');
   });
 });
